@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { RegisterUseCase } from './register'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
 
-describe('Register use case', () => {
+describe('Register Use Case', () => {
   it('should be able to register', async () => {
     const prismaRepository = new InMemoryUsersRepository()
     const registerUseCase = new RegisterUseCase(prismaRepository)
