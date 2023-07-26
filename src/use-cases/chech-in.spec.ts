@@ -81,7 +81,7 @@ describe('Check-in Use Case', () => {
   })
 
   it('should not be able to check in on distant gym', async () => {
-    gymsRepository.create({
+    await gymsRepository.create({
       id: 'any_gym_id_2',
       title: 'any_gym_title',
       phone: 'any_gym_phone',
