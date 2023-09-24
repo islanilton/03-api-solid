@@ -43,7 +43,7 @@ describe('Check-in Use Case', () => {
   })
 
   it('should not be able to check in twice in the same day', async () => {
-    vi.setSystemTime(new Date('2022-01-01'))
+    vi.setSystemTime(new Date(2022, 0, 20, 8, 0, 0))
     await sut.execute({
       userId: 'any_user_id',
       gymId: 'any_gym_id',
@@ -62,7 +62,7 @@ describe('Check-in Use Case', () => {
   })
 
   it('should be able to check in twice but in different days', async () => {
-    vi.setSystemTime(new Date('2022-01-01'))
+    vi.setSystemTime(new Date(2022, 0, 20, 8, 0, 0))
     await sut.execute({
       userId: 'any_user_id',
       gymId: 'any_gym_id',
@@ -70,7 +70,7 @@ describe('Check-in Use Case', () => {
       userLongitude: -34.9175703,
     })
 
-    vi.setSystemTime(new Date('2022-01-02'))
+    vi.setSystemTime(new Date(2022, 0, 21, 8, 0, 0))
     const { checkIn } = await sut.execute({
       userId: 'any_user_id',
       gymId: 'any_gym_id',
