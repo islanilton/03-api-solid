@@ -3,6 +3,7 @@ import request from 'supertest'
 import { app } from '@/app'
 import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-user'
 import { prisma } from '@/lib/prisma'
+import { t } from 'vitest/dist/types-198fd1d9'
 
 describe('Validate Check-In (e2e)', () => {
   beforeAll(async () => {
@@ -21,7 +22,7 @@ describe('Validate Check-In (e2e)', () => {
         longitude: -34.9175703,
       },
     })
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, true)
 
     const user = await prisma.user.findFirstOrThrow()
     let checkIn = await prisma.checkIn.create({
